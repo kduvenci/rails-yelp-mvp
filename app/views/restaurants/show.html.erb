@@ -1,0 +1,29 @@
+<br><br><br>
+<div class="container">
+  <div class="page-header">
+    <h1><%= @restaurant.name %> <small><%= @restaurant.category %></small></h1>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <strong>Address:</strong> <%= @restaurant.address %>
+    </div>
+    <div class="panel-footer"><strong>Phone:</strong> <%= @restaurant.phone_number %></div>
+  </div>
+  <%= link_to '<< Home', restaurants_path, class:"btn btn-primary" %>
+  <%= link_to 'Add Comment >>', new_restaurant_review_path(@restaurant), class:"btn btn-success" %>
+  <br>
+  <div class="list-group">
+    <h4>Comments :</h4>
+    <% if @restaurant.reviews.empty? %>
+      <a href='' class="list-group-item">
+        <p>No comment yet..</p> 
+      </a>
+    <% end %>    
+    <% @restaurant.reviews.each do |review| %>
+      <a href='' class="list-group-item">
+        <strong><%= review.content %> </strong> <small>(<%= "*" * review.rating %>)</small> 
+      </a>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+<br><br><br>
+<div class="container">
+  <div class="list-group">
+    <strong style="font-size: 42px;">Restaurants</strong>
+    <%= link_to 'Create Restaurant', new_restaurant_path, class:"btn btn-success pull-right" %>
+  </div>
+  <div class="list-group">
+  <% @restaurants.each do |restaurant| %>
+    <a href='<%= restaurant_path(restaurant) %>' class="list-group-item">
+      <h3><%= restaurant.name %> <small><%= restaurant.category %></small></h3>
+    </a>
+  <% end %>
+  </div>
+</div>
+
